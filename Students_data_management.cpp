@@ -7,39 +7,40 @@
 #include <sstream>
 #include "Encrypt_Decrypt_with_key.cpp"
 using namespace std;
+
 struct Data {
 protected: string name, id, addr;
 		   string s_arr[4];
 public:	 
 		 void setname(string _name)
 		 {
-			 name = _name;
+			 name = _name;			//sets the name
 		 }
 		 void setid(string _id)
 		 {
-			 id = _id;
+			 id = _id;			//sets id
 		 }
 		 void setaddr(string _addr)
 		 {
-			 addr = _addr;
+			 addr = _addr;			//sets address
 		 }
 		 string getname()
 		 {
-			 return name;
+			 return name;			//returns name
 		 }
 		 string getid()
 		 {
-			 return id;
+			 return id;			//returns id
 		 }
 		 string getaddr()
 		 {
-			 return addr;
+			 return addr;			//returns address
 		 }
 		 void save_info(string ex_atttribute_1)
 		 {
 			 ofstream o;
 			 o.open("storage_t.txt", ios::_Nocreate | ios::app);
-			 string str = id + "~" + name + "~" + addr + "~" + ex_atttribute_1;
+			 string str = id + "~" + name + "~" + addr + "~" + ex_atttribute_1;		//saves the set info
 			 cout << "\n Enter a Key to Encrypt : ";
 			 string key;
 			 cin >> key;
@@ -50,7 +51,7 @@ public:
 		 void load_info()
 		 {
 			 ifstream o;
-			 o.open("storage_t.txt", ios::_Nocreate);
+			 o.open("storage_t.txt", ios::_Nocreate);		//loades the requested data
 			 string str;
 			 string key;
 			 cout << "\n Enter a Key to Decrypt : ";
@@ -76,31 +77,30 @@ private: string subject;
 public:
 void setsubject(string _subject)
 {
-	subject = _subject;
+	subject = _subject;		//sets subject
 }
 string getsubject()
 {
-	return subject;
+	return subject;			//returns subject
 }
 void load_info()
 {
 	Data::load_info();
 	id = s_arr[0];
-	name = s_arr[1];
+	name = s_arr[1];		//loades information from the parent struct
 	addr = s_arr[2];
 	subject = s_arr[3];
 }
 };
-class Valid_Length_Checker : public exception {
+class Valid_Length_Checker : public exception {			//raises an exception if the entered string overflows
 public:
 	string what() {
 		return "String Limit Crossed!!";
 	}
 };
-class Invalid_ID : public exception {
+class Invalid_ID : public exception {			//raises an error if the entered Id is invalid
 public: 
-	string what()
-	{
+	string what() {
 		return "Invalid ID Input!!";
 	}
 };
