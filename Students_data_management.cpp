@@ -14,7 +14,7 @@ protected: string name, id, addr;
 public:	 
 		 void setname(string _name)
 		 {
-			 name = _name;			//sets the name
+			 name = _name;			//sets name
 		 }
 		 void setid(string _id)
 		 {
@@ -109,15 +109,15 @@ private: string std;
 public:
 	void setstd(string _std)
 	{
-		std = _std;
+		std = _std;		//sets standard/grade of the student
 	}
 	string getstd()
 	{
-		return std;
+		return std;		//returns standard
 	}
 	void load_info()
 	{
-		Data::load_info();
+		Data::load_info();		//loades information from the parent struct
 		id = s_arr[0];
 		name = s_arr[1];
 		addr = s_arr[2];
